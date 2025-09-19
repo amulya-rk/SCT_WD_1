@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Navigation Menu</title>
+  <style>
+    :root {
+      --bg-color: #1e1e2f;
+      --nav-color: #2a2a3b;
+      --nav-scrolled: #1f1f30;
+      --text-color: #e0e0e0;
+      --muted-color: #b0b3c2;
+      --accent-color: #4da6ff;
+      --hover-color: #80c1ff;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--nav-color);
+      padding: 16px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    header.scrolled {
+      background-color: var(--nav-scrolled);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 16px;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--hover-color);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      padding: 120px 60px 60px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: var(--accent-color);
+      margin-top: 40px;
+    }
+
+    p {
+      font-size: 17px;
+      color: var(--muted-color);
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 40px 60px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted-color);
+      background-color: #2a2a3b;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 24px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      main {
+        padding: 100px 24px 40px;
+      }
+
+      footer {
+        padding: 30px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="navbar">
+    <div class="brand">Web Page </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Details</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Interactive Navigation Menu</h1>
+    <p>
+      This webpage features a fixed top navigation bar that changes style on scroll and includes interactive hover effects. It is designed with a soft dark theme and modern layout for professional academic presentation.
+    </p>
+
+    <h2>Design</h2>
+    <p>
+      The page uses elegant dark colors with light text for contrast. Hover and scroll effects are smooth and subtle, enhancing user experience while maintaining focus on readability.
+    </p>
+
+    <h2>Functionality</h2>
+    <p>
+      JavaScript is used to detect scrolling and apply a class to the header, which changes its background and adds a shadow. Menu links highlight with an animated underline when hovered.
+    </p>
+
+    <h2>Use Case</h2>
+    <p>
+      This layout is ideal for submitting as a portfolio project, personal website, or assignment in web development coursework.
+    </p>
+
+    <p style="margin-top: 400px;">End of content for scroll testing.</p>
+  </main>
+
+  <footer>
+    Interactive Navigation Menu – Web Technologies Assignment
+  </footer>
+
+  <script>
+    const header = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 40);
+    });
+  </script>
+
+</body>
+</html>
